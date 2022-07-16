@@ -1,0 +1,32 @@
+<footer class="footer">
+  <div class="container">
+    <div>
+      <div class>
+        <h3 class="footer-title">{{'La flor de maria - Floreria' | translate | async}}</h3>
+        <h4 class="footer-subtitle">{{'Florería La flor de María, ofrece productos a nuestros clientes la posibilidad de transmitir sus sentimientos a través de nuestros productos florales.' | translate | async}}</h4>
+      </div>
+      <div class>
+        <h5 class="footer-subtitle">{{'ENLACES' | translate | async}}</h5>
+        <ul class="footer-links">
+          <li><a class
+              [routerLink]="['/' + lang + '/eshop/contact']">
+              {{'Contactenos' | translate | async}}
+            </a></li>
+          <ng-container *ngFor="let page of (pages$ | async); trackBy: trackById">
+            <li>
+                <a class
+                [routerLink]="['/' + lang + '/eshop/' + page.titleUrl]">
+                {{ page[lang]?.title || page.titleUrl }}
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © {{currentYear}} - Estudiantes de la UTP
+    </div>
+  </div>
+</footer>
